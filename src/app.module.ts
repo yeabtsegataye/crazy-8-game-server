@@ -13,7 +13,7 @@ import { WebsocketModule } from './websocket/websocket.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/crazy8-game'),
+    MongooseModule.forRoot('mongodb+srv://tatipassword:tatipassword@cluster0.j12sxcz.mongodb.net/crazy8-game'),
     AuthModule,
     UserModule,
     GameModule,
