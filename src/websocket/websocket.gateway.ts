@@ -22,7 +22,14 @@ interface ConnectedUser {
 
 @WebSocketGateway({
   cors: {
-    origin: ['http://localhost:3000', 'http://localhost:5173'],
+    origin:
+      process.env.CORS_ORIGINS?.split(',')
+        .map((s) => s.trim())
+        .filter(Boolean) ?? [
+        'http://localhost:3000',
+        'http://localhost:5173',
+        'https://crazy-8-game-front.onrender.com',
+      ],
     credentials: true,
   },
   namespace: '/game',

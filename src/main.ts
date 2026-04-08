@@ -12,8 +12,17 @@ async function bootstrap() {
     transform: true,
   }));
   
+  const defaultCorsOrigins = [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'https://crazy-8-game-front.onrender.com',
+  ];
+  const corsOrigins =
+    process.env.CORS_ORIGINS?.split(',').map((s) => s.trim()).filter(Boolean) ??
+    defaultCorsOrigins;
+
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:5173'],
+    origin: corsOrigins,
     credentials: true,
   });
   
